@@ -18,7 +18,7 @@ class SimpleBlockServiceTest extends \PHPUnit_Framework_TestCase
         $templatingMock->expects($this->once())
             ->method('renderResponse')
             ->with(
-                $this->equalTo('SymfonyCmfBlockBundle:Block:block_simple.html.twig'),
+                $this->equalTo('CmfBlockBundle:Block:block_simple.html.twig'),
                 $this->equalTo(array(
                     'block'=> $simpleBlock
                 ))

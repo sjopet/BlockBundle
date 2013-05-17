@@ -13,7 +13,7 @@ class RssBlock extends ActionBlock
 {
     public function getDefaultActionName()
     {
-        return 'symfony_cmf.block.rss_controller:block';
+        return 'cmf.block.rss_controller:block';
     }
 
     public function getDefaultSettings()
@@ -22,7 +22,7 @@ class RssBlock extends ActionBlock
             'url'       => false,
             'title'     => 'Insert the rss title',
             'maxItems'  => 10,
-            'template'  => 'SymfonyCmfBlockBundle:Block:block_rss.html.twig',
+            'template'  => 'CmfBlockBundle:Block:block_rss.html.twig',
             'itemClass' => 'Symfony\Cmf\Bundle\BlockBundle\Model\FeedItem',
         );
     }

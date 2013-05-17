@@ -72,7 +72,7 @@ class ContainerBlockServiceTest extends \PHPUnit_Framework_TestCase
         $templatingMock
             ->expects($this->once())
             ->method('renderResponse')
-            ->with('SymfonyCmfBlockBundle:Block:block_container.html.twig',
+            ->with('CmfBlockBundle:Block:block_container.html.twig',
                 array(
                     'block' => $containerBlock,
                     'childBlocks' => array($responseContent1, $responseContent2),
@@ -113,7 +113,7 @@ class ContainerBlockServiceTest extends \PHPUnit_Framework_TestCase
         $templatingMock
             ->expects($this->once())
             ->method('renderResponse')
-            ->with('SymfonyCmfBlockBundle:Block:block_container.html.twig',
+            ->with('CmfBlockBundle:Block:block_container.html.twig',
                 array(
                     'block' => $containerBlock,
                     'childBlocks' => array(),
