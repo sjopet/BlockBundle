@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="symfony_cmf_block.group_list_admin_class">Symfony\Cmf\Bundle\BlockBundle\Admin\GroupListAdmin</parameter>
+    </parameters>
+
+    <services>
+        <service id="symfony_cmf_block.group_list_admin" class="%symfony_cmf_block.group_list_admin_class%">
+            <tag name="sonata.admin" manager_type="doctrine_phpcr" catalogue="SymfonyCmfBlockBundle" label="Blocks" label_translator_strategy="sonata.admin.label.strategy.underscore" />
+            <argument/>
+            <argument>Symfony\Cmf\Bundle\BlockBundle\Document\BaseBlock</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+
+            <call method="setRouteBuilder">
+                <argument type="service" id="sonata.admin.route.path_info_slashes" />
+            </call>
+        </service>
+
+    </services>
+</container>
