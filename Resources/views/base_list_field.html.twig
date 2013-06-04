@@ -2,6 +2,7 @@
     {% set admin = admin.getSubAdmin(object) %}
 {% endif %}
 
+
 <td class="sonata-ba-list-field sonata-ba-list-field-{{ field_description.type }}" objectId="{{ admin.id(object) }}">
     {% if
             field_description.options.identifier is defined

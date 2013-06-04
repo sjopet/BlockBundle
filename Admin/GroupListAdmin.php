@@ -10,7 +10,6 @@ use Sonata\DoctrinePHPCRAdminBundle\Datagrid\ProxyQuery;
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Doctrine\ODM\PHPCR\DocumentManager;
-//use Netvlies\Bundle\AdminExtensionsBundle\Datagrid\TypeFieldDescription;
 
 class GroupListAdmin extends Admin
 {
@@ -36,18 +35,16 @@ class GroupListAdmin extends Admin
      */
     protected function configureListFields(ListMapper $listMapper)
     {
-//        $typeField = new TypeFieldDescription();
-//        $typeField->setFieldName('type');
+        $adminField = new SubAdminFieldDescription();
+        $adminField->setFieldName('type');
 
-        $typeLabel = function() {
-
-            return '';
-        };
+        $idField = new IdFieldDescription();
+        $idField->setFieldName('id');
 
         $listMapper
-            ->addIdentifier('id', 'text', array('template' => $this->listFieldTemplate))
-            ->add('name', 'text', array('template' => $this->listFieldTemplate))
-            ->add('type', 'type', array('label' => $typeLabel, 'template' => $this->listFieldTemplate))
+            ->addIdentifier('id', 'text')
+            ->add('name', 'text')
+            ->add($adminField, 'text')
         ;
     }
 
@@ -78,9 +75,10 @@ class GroupListAdmin extends Admin
     public function getSubAdmin($name)
     {
         if(is_object($name)){
-            $name = ($name instanceof \Doctrine\ODM\PHPCR\Proxy\Proxy) ? get_parent_class($name) : get_class($name);
+            $name = \Doctrine\Common\Util\ClassUtils::getRealClass(get_class($name));
         }
-        return parent::getSubClass($name);
+
+        return $this->getConfigurationPool()->getAdminByClass($name);
     }
 
     /**
