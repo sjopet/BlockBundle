@@ -16,7 +16,7 @@ class ImagineBlock extends BaseBlock
 {
     /**
      * @var Image
-     * @PHPCRODM\Child(name="image", cascade="persist")
+     * @PHPCRODM\Child(cascade="persist")
      */
     protected $image;
 
@@ -43,7 +43,7 @@ class ImagineBlock extends BaseBlock
      */
     public function getType()
     {
-        return 'symfony_cmf.block.imagine';
+        return 'cmf.block.imagine';
     }
 
     public function setLabel($label)

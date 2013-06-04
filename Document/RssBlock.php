@@ -11,19 +11,13 @@ use Doctrine\ODM\PHPCR\Mapping\Annotations as PHPCRODM;
  */
 class RssBlock extends ActionBlock
 {
-    public function getDefaultActionName()
+    public function getType()
     {
-        return 'symfony_cmf.block.rss_controller:block';
+        return 'cmf.block.action';
     }
 
-    public function getDefaultSettings()
+    public function getDefaultActionName()
     {
-        return array(
-            'url'       => false,
-            'title'     => 'Insert the rss title',
-            'maxItems'  => 10,
-            'template'  => 'SymfonyCmfBlockBundle:Block:block_rss.html.twig',
-            'itemClass' => 'Symfony\Cmf\Bundle\BlockBundle\Model\FeedItem',
-        );
+        return 'cmf.block.rss_controller:block';
     }
 }
