@@ -5,12 +5,12 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="symfony_cmf_block.group_list_admin_class">Symfony\Cmf\Bundle\BlockBundle\Admin\GroupListAdmin</parameter>
+        <parameter key="sonata.admin.group_list_manager.class">Sonata\DoctrinePHPCRAdminBundle\Admin\GroupListManager</parameter>
     </parameters>
 
     <services>
-        <service id="symfony_cmf_block.group_list_admin" class="%symfony_cmf_block.group_list_admin_class%">
-            <tag name="sonata.admin" manager_type="doctrine_phpcr" catalogue="SymfonyCmfBlockBundle" label="Blocks" label_translator_strategy="sonata.admin.label.strategy.underscore" />
+        <service id="cmf_block.admin.group_list_manager" class="%sonata.admin.group_list_manager.class%">
+            <tag name="sonata.admin" manager_type="doctrine_phpcr" group="dashboard.group_content" label_catalogue="CmfBlockBundle" label="dashboard.group_content" label_translator_strategy="sonata.admin.label.strategy.underscore" />
             <argument/>
             <argument>Symfony\Cmf\Bundle\BlockBundle\Document\BaseBlock</argument>
             <argument>SonataAdminBundle:CRUD</argument>
